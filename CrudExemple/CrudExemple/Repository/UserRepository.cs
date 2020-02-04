@@ -28,7 +28,7 @@ namespace CrudExemple.Repository
         {
             using IDbConnection dbConnection = Connection;
             dbConnection.Open();
-            dbConnection.Execute("INSERT INTO Users (name,email,phone,address,password) VALUES(@Name,@Email,@Phone,@Address,@Password)", item);
+            dbConnection.Execute("INSERT INTO Users (name,email,password,phone,address) VALUES(@Name,@Email,@Password,@Phone,@Address)", item);
 
         }
 
@@ -36,7 +36,7 @@ namespace CrudExemple.Repository
         {
             using IDbConnection dbConnection = Connection;
             dbConnection.Open();
-            return dbConnection.Query<Users>("SELECT * FROM users");
+            return dbConnection.Query<Users>("SELECT * FROM Users");
         }
 
         public Users FindByID(int id)
@@ -57,7 +57,7 @@ namespace CrudExemple.Repository
         {
             using IDbConnection dbConnection = Connection;
             dbConnection.Open();
-            dbConnection.Query("UPDATE Users SET name = @Name,   email= @Email, phone  = @Phone, address= @Address, password= @Password WHERE id = @Id", item);
+            dbConnection.Query("UPDATE Users SET name = @Name,   email= @Email, password= @Password, phone  = @Phone, address= @Address  WHERE id = @Id", item);
         }
     }
 }

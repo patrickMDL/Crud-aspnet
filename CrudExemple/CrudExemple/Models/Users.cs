@@ -1,8 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using Dapper;
+using System.Data;
+using Npgsql;
+using CrudExemple.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Configuration;
 
 namespace CrudExemple.Models
 {
@@ -17,7 +21,8 @@ namespace CrudExemple.Models
         [Required]
         public string Password { get; set; }
         public string Address { get; set; }
-        [Required]
         public string Phone { get; set; }
     }
+
+    
 }

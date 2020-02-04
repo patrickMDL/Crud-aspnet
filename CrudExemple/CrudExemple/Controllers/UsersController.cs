@@ -59,11 +59,8 @@ namespace CrudExemple.Controllers
         public IActionResult Edit(Users obj)
         {
 
-            if (ModelState.IsValid)
-            {
-                UsersRepository.Update(obj);
-                return RedirectToAction("Index");
-            }
+            UsersRepository.Update(obj);
+            return RedirectToAction("Index");
             return View(obj);
         }
 
